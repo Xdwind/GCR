@@ -7,7 +7,7 @@ THRESHOLD = dict({'movie': 4, 'book': 0, 'music': 0})
 
 
 def read_item_index_to_entity_id_file():
-    file = 'F:/论文进展/知识图谱和推荐系统/数据实验/KGCN-master/KGCN-master/data/' + DATASET + '/item_index2entity_id.txt'
+    file = '.../data/' + DATASET + '/item_index2entity_id.txt'
     print('reading item index to entity id file: ' + file + ' ...')
     i = 0
     for line in open(file, encoding='utf-8').readlines():
@@ -19,8 +19,8 @@ def read_item_index_to_entity_id_file():
 
 
 def convert_rating():
-    file = 'F:/论文进展/知识图谱和推荐系统/数据实验/KGCN-master/KGCN-master/data/' + DATASET + '/' + RATING_FILE_NAME[DATASET]
-    kg_final_1 = 'F:/论文进展/知识图谱和推荐系统/数据实验/KGCN-master/KGCN-master/data/movie/kg_user_interest'
+    file = '.../data/' + DATASET + '/' + RATING_FILE_NAME[DATASET]
+    kg_final_1 = '.../data/movie/kg_user_interest'
     print('reading rating file ...')
     kg_np_1 = np.loadtxt(kg_final_1 + '.txt', dtype=np.int64)
 
@@ -59,7 +59,7 @@ def convert_rating():
             user_neg_ratings[user_index_old].add(item_index)
 
     print('converting rating file ...')
-    writer = open('F:/论文进展/知识图谱和推荐系统/数据实验/KGCN-master/KGCN-master/data/' + DATASET + '/ratings_final.txt', 'w', encoding='utf-8')
+    writer = open('.../data/' + DATASET + '/ratings_final.txt', 'w', encoding='utf-8')
     user_cnt = 0
     user_index_old2new = dict()
     for user_index_old, pos_item_set in user_pos_ratings.items():
@@ -85,8 +85,8 @@ def convert_kg():
     entity_cnt = len(entity_id2index)
     relation_cnt = 0
 
-    writer = open('F:/论文进展/知识图谱和推荐系统/数据实验/KGCN-master/KGCN-master/data/' + DATASET + '/kg_final.txt', 'w', encoding='utf-8')
-    for line in open('F:/论文进展/知识图谱和推荐系统/数据实验/KGCN-master/KGCN-master/data/' + DATASET + '/kg.txt', encoding='utf-8'):
+    writer = open('.../data/' + DATASET + '/kg_final.txt', 'w', encoding='utf-8')
+    for line in open('.../data/' + DATASET + '/kg.txt', encoding='utf-8'):
         array = line.strip().split('\t')
         head_old = array[0]
         relation_old = array[1]
