@@ -14,7 +14,7 @@ def load_rating(args):
     print('reading rating file ...')
 
     # reading rating file
-    rating_file = 'F:/论文进展/知识图谱和推荐系统/数据实验/KGCN-master/KGCN-master/data/' + args.dataset + '/ratings_final'
+    rating_file = '.../data/' + args.dataset + '/ratings_final'
     if os.path.exists(rating_file + '.npy'):
         rating_np = np.load(rating_file + '.npy')
     else:
@@ -60,9 +60,9 @@ def load_kg(args):
     print('reading KG file ...')
 
     # reading kg file
-    kg_final = 'F:/论文进展/知识图谱和推荐系统/数据实验/KGCN-master/KGCN-master/data/' + args.dataset + '/kg_final'
-    kg_final_1 = 'F:/论文进展/知识图谱和推荐系统/数据实验/KGCN-master/KGCN-master/data/' + args.dataset + '/kg_user_interest'
-    kg_final_2 = 'F:/论文进展/知识图谱和推荐系统/数据实验/KGCN-master/KGCN-master/data/' + args.dataset + '/kg_genre_entity'
+    kg_final = '.../data/' + args.dataset + '/kg_final'
+    kg_final_1 = '.../data/' + args.dataset + '/kg_user_interest'
+    kg_final_2 = '.../data/' + args.dataset + '/kg_genre_entity'
 
     kg_np = np.loadtxt(kg_final + '.txt', dtype=np.int64)
     kg_np_1 = np.loadtxt(kg_final_1 + '.txt', dtype=np.int64)
@@ -127,7 +127,7 @@ def construct_adj(args, kg, kg_genre, entity_num, n_genre):
     interest_adj_entity = np.zeros([n_genre, args.neighbor_sample_size], dtype=np.int64)
     interest_adj_relation = np.zeros([n_genre, args.neighbor_sample_size], dtype=np.int64)
     # short interest entity 有偏差地选择
-    entity_file0 = 'F:/论文进展/知识图谱和推荐系统/数据实验/KGCN-master/KGCN-master/data/movie/entity_one_hot'
+    entity_file0 = '.../data/movie/entity_one_hot'
     entity_present = np.loadtxt(entity_file0 + '.txt', dtype=np.int64, usecols=np.arange(0, 32))
     for entity in range(entity_num):
         neighbors = kg[entity]
