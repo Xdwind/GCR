@@ -7,7 +7,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 
 def read_item_index_to_entity_id_file():
-    file = 'G:/知识图谱和推荐系统/KGCN-master/KGCN-master/data/movie/item_index2entity_id.txt'
+    file = '.../data/movie/item_index2entity_id.txt'
     i = 0
     for line in open(file, encoding='utf-8').readlines():
         item_index = line.strip().split('\t')[0]
@@ -22,7 +22,7 @@ def user_interest():
 
 
 def items_to_one_hot():
-    file = 'G:/知识图谱和推荐系统/KGCN-master/KGCN-master/data/movie/movies.csv'
+    file = '.../data/movie/movies.csv'
     # rating_np = np.loadtxt(file, dtype=np.str, delimiter=",")
     genres_set = set()
     genres_cnt = 0
@@ -53,14 +53,14 @@ def items_to_one_hot():
             entity_cnt += 1
             print(array[0], item_genres_to_one_hot[int(array[0])])
     print('entity_cnt', entity_cnt)
-    writer = open('G:/知识图谱和推荐系统/KGCN-master/KGCN-master/data/movie/entity_one_hot.txt', 'w',
+    writer = open('.../data/movie/entity_one_hot.txt', 'w',
                   encoding='utf-8')
     for entity in range(entity_cnt):
         for i in entity_genres_to_one_hot[entity]:
             writer.write('%d\t' % i)
         writer.write('\n')
     writer.close()
-    writer = open('G:/知识图谱和推荐系统/KGCN-master/KGCN-master/data/movie/kg_genre_entity.txt', 'w',
+    writer = open('.../data/movie/kg_genre_entity.txt', 'w',
                   encoding='utf-8')
     for entity in range(entity_cnt):
         genre_cnt = 0
@@ -79,7 +79,7 @@ def items_to_one_hot():
 
 
 def user_interest_present(item_genres_to_one_hot):
-    file = 'G:/知识图谱和推荐系统/KGCN-master/KGCN-master/data/movie/ratings.csv'
+    file = '.../data/movie/ratings.csv'
     print('loaded ratings.csv')
     user_to_time_set = dict()
     user_set = set()
@@ -120,7 +120,7 @@ def user_interest_present(item_genres_to_one_hot):
         # print('user_to_interest_present', user_to_interest_present[user])
         user_nct += 1
     print('user_to_interest_present', user_to_interest_present[0])
-    writer = open('G:/知识图谱和推荐系统/KGCN-master/KGCN-master/data/movie/kg_user_interest.txt', 'w',
+    writer = open('.../data/movie/kg_user_interest.txt', 'w',
                   encoding='utf-8')
     for interest in user_to_interest_present.items():
         interest_cnt = 0
