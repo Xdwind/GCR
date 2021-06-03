@@ -1,1 +1,1 @@
-# KI-GCN
+# GCR
